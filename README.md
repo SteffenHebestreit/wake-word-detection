@@ -401,7 +401,7 @@ An advanced voice recognition system with sophisticated wake word detection, bui
 
 ### Project Structure
 ```
-wake-word-example/
+wake-word-detection/
 ├── index.html              # Main HTML interface with modal configuration system
 ├── css/
 │   └── styles.css          # Comprehensive glassmorphism UI with 1000+ lines of styling
