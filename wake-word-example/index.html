@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WakeWordExample</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Modal for configuration -->
+    <div id="configModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Configuration</h2>
+
+        <div class="config-section">
+          <h3>Wake Word Configuration</h3>
+          <div class="keyword-management">
+            <input
+              type="text"
+              id="newKeywordModal"
+              placeholder="Enter new wake word"
+            />
+            <button id="addKeywordBtnModal" class="btn small-btn">
+              Add Keyword
+            </button>
+          </div>
+
+          <div class="keywords-list" id="keywordListModal">
+            <!-- Keywords will be populated here -->
+          </div>
+        </div>
+
+        <div class="config-section">
+          <h3>Emergency Stop Configuration</h3>
+          <div class="keyword-management">
+            <input
+              type="text"
+              id="emergencyKeywordInput"
+              placeholder="Enter emergency stop command"
+            />
+            <span class="value-display" id="emergencyKeywordDisplay">luna stop</span>
+          </div>
+        </div>
+
+        <div class="config-section">
+          <h3>Stop Recording Commands</h3>
+          <div class="keyword-management">
+            <input
+              type="text"
+              id="newStopKeywordModal"
+              placeholder="Enter new stop command"
+            />
+            <button id="addStopKeywordBtnModal" class="btn small-btn">
+              Add Stop Command
+            </button>
+          </div>
+
+          <div class="keywords-list" id="stopKeywordListModal">
+            <!-- Stop keywords will be populated here -->
+          </div>
+        </div>
+
+        <div class="settings-section">
+          <h3>Recognition Settings</h3>
+          <div class="setting-item">
+            <label for="silenceTimeoutModal">Silence Timeout (seconds):</label>
+            <input
+              type="range"
+              id="silenceTimeoutModal"
+              min="1"
+              max="10"
+              value="4"
+              step="0.5"
+            />
+            <span class="value-display" id="timeoutValueDisplayModal">4.0</span>
+          </div>
+
+          <div class="setting-item">
+            <label for="thresholdValueModal">Detection Threshold:</label>
+            <input
+              type="range"
+              id="thresholdValueModal"
+              min="0"
+              max="1"
+              step="0.05"
+              value="0.7"
+            />
+            <span class="value-display" id="thresholdDisplayModal">0.7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <header>
+        <h1>Wake-Word-Example</h1>
+        <p class="subtitle">Advanced Voice Recognition System</p>
+      </header>
+
+      <main>
+        <div class="status-display" id="status">
+          <span class="status-text">Ready to start listening</span>
+          <button id="configBtn" class="btn small-btn config-button">⚙️</button>
+          <!-- Language selector in bottom-right corner -->
+          <div class="language-selector-container">
+            <select id="languageSelect" class="language-select">
+              <option value="de-DE">German</option>
+              <option value="en-US">English</option>
+              <option value="pl-PL">Polish</option>
+            </select>
+          </div>
+          <div class="keywords-list" id="keywordList">
+            <!-- Keywords will be populated here -->
+          </div>
+        </div>
+
+        <div class="transcript-display" id="transcriptDisplay">
+          <!-- Last transcript will appear here -->
+        </div>
+
+        <div class="recording-indicator">
+          <div class="recording-bar" id="recordingBar"></div>
+        </div>
+        <div class="controls">
+          <button id="startBtn" class="btn primary-btn">
+            <span class="btn-text">Start Listening</span>
+          </button>
+          <button id="stopBtn" class="btn secondary-btn" disabled>
+            <span class="btn-text">Stop Listening</span>
+          </button>
+        </div>
+      </main>
+
+      <footer>
+        <p id="micInfo">Microphone not initialized</p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/background.js"></script>
+  </body>
+</html>
